@@ -36,7 +36,7 @@
 <div class="row">
    <div class="col-md-6">
     <span class="text-muted"><%= Book.human_attribute_name(:picture) %></span>
-    <%= image_tag @book.picture, width: 300 unless @book.picture.blank? %>
+    <%= image_tag @book.picture, width: 300 if @book.picture.present? %>
   </div>
 </div>
 

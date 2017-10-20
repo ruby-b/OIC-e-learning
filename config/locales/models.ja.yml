@@ -12,5 +12,6 @@ ja:
         price: 価格
         picture: 商品写真
         tag: タグ
+        picture_content_type: Content Type
       tag:
         name: タグ名
