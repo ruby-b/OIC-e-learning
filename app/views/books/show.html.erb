@@ -25,5 +25,10 @@
   <%= @book.price %>
 </p>
 
+<p>
+  <strong>タグ</strong>
+  <%= @book.tags.map(&:name).join(', ') %>
+</p>
+
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
