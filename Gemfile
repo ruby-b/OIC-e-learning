@@ -41,6 +41,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'database_rewinder'
+  gem 'capybara'
+  gem 'selenium-webdriver'
 end
 
 group :development do
