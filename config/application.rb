@@ -29,5 +29,8 @@ module MonkaEc2017
     config.generators.system_tests = nil
 
     config.time_zone = 'Tokyo'
+
+    # don't generate system test file
+    config.generators.system_test = nil
   end
 end
