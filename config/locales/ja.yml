@@ -203,3 +203,35 @@ ja:
       long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
       short: "%y/%m/%d %H:%M"
     pm: 午後
+  scaffold: &scaffold
+    default: &default
+      new: 新規作成
+      edit: 編集
+      show: 詳細
+      destroy: 削除
+      back: 戻る
+      confirm: 本当に削除しますか?
+    index:
+      <<: *default
+      title: 一覧画面
+    show:
+      <<: *default
+    new:
+      <<: *default
+      title: 新規画面
+    edit:
+      <<: *default
+      title: 編集画面
+    create:
+      success: 新規作成しました
+    update:
+      success: 更新しました
+    destroy:
+      success: 削除しました
+  books:
+    <<: *scaffold
+  tags:
+    <<: *scaffold
+  login: ログイン
+  logout: ログアウト
+  sign_up: ユーザ登録

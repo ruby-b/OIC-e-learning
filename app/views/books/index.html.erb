@@ -1,15 +1,13 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Books</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Published on</th>
-      <th>Showing</th>
-      <th>Price</th>
+      <th><%= Book.human_attribute_name(:title) %></th>
+      <th><%= Book.human_attribute_name(:author) %></th>
+      <th><%= Book.human_attribute_name(:published_on) %></th>
+      <th><%= Book.human_attribute_name(:showing) %></th>
+      <th><%= Book.human_attribute_name(:price) %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,10 +20,10 @@
         <td><%= book.published_on %></td>
         <td><%= book.showing %></td>
         <td><%= book.price %></td>
-        <td><%= link_to 'Show', book %></td>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Destroy', book, method: :delete,
-                data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t('.show'), book %></td>
+        <td><%= link_to t('.edit'), edit_book_path(book) %></td>
+        <td><%= link_to t('.destroy'), book, method: :delete,
+                data: { confirm: t('.confirm') } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -33,4 +31,4 @@
 
 <br>
 
-<%= link_to 'New Book', new_book_path %>
+<%= link_to t('.new'), new_book_path %>

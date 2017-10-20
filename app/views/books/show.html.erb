@@ -1,34 +1,44 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-6">
+    <span class="text-muted"><%= Book.human_attribute_name(:title) %></span>
+    <%= @book.title %>
+  </div>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @book.title %>
-</p>
+<div class="row">
+  <div class="col-md-6">
+    <span class="text-muted"><%= Book.human_attribute_name(:author) %></span>
+    <%= @book.author %>
+  </div>
+</div>
 
-<p>
-  <strong>Author:</strong>
-  <%= @book.author %>
-</p>
+<div class="row">
+  <div class="col-md-6">
+    <span class="text-muted"><%= Book.human_attribute_name(:published_on) %></span>
+    <%= @book.published_on %>
+  </div>
+</div>
 
-<p>
-  <strong>Published on:</strong>
-  <%= @book.published_on %>
-</p>
+<div class="row">
+  <div class="col-md-6">
+    <span class="text-muted"><%= Book.human_attribute_name(:showing) %></span>
+    <%= @book.showing %>
+  </div>
+</div>
 
-<p>
-  <strong>Showing:</strong>
-  <%= @book.showing %>
-</p>
+<div class="row">
+   <div class="col-md-6">
+    <span class="text-muted"><%= Book.human_attribute_name(:price) %></span>
+    <%= @book.price %>
+  </div>
+</div>
 
-<p>
-  <strong>Price:</strong>
-  <%= @book.price %>
-</p>
+<div class="row">
+  <div class="col-md-6">
+    <span class="text-muted"><%= Book.human_attribute_name(:tag) %></span>
+    <%= @book.tags.map(&:name).join(', ') %>
+  </div>
+</div>
 
-<p>
-  <strong>タグ</strong>
-  <%= @book.tags.map(&:name).join(', ') %>
-</p>
-
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+<%= link_to t('.edit'), edit_book_path(@book) %> |
+<%= link_to t('.back'), books_path %>

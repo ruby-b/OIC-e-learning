@@ -1,23 +1,26 @@
 <%= form_with(model: tag, local: true) do |form| %>
   <% if tag.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(tag.errors.count, "error") %>
-        prohibited this tag from being saved:</h2>
-
-      <ul>
-      <% tag.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="card border-danger">
+      <div class="card-header bg-danger text-white">
+        <%= pluralize(tag.errors.count, "error") %>
+        prohibited this tag from being saved:
+      </div>
+      <div class="card-body">
+        <ul class="mb-0">
+          <% tag.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :tag_name %>
+    <%= form.text_field :name, id: :tag_name, class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

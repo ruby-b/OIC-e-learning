@@ -1,17 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>MonkaEc2017</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>MonkaEc2017</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all',
-                               'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application',
-                               'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all',
+                          'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application',
+                          'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-    <%= yield %>
-  </body>
+<body>
+
+<nav class="navbar navbar-light bg-faded">
+  <h1 class="navbar-brand mb-0">Navbar</h1>
+  <ul class="nav justify-content-end">
+    <li class="nav-item">
+      <%= link_to t('logout'), destroy_user_session_path, method: :delete, class: 'nav-link' if user_signed_in? %>
+    </li>
+  </ul>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <% if notice.present? %>
+        <div class="alert alert-success" role="alert">
+          <%= notice %>
+        </div>
+      <% end %>
+      <% if alert.present? %>
+        <div class="alert alert-danger" role="alert">
+          <%= alert %>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
+    <div class="col-md-3">
+      <div>
+        <h4>About</h4>
+        This system is for user registration.
+      </div>
+    </div>
+  </div>
+</div>
+</body>
 </html>
