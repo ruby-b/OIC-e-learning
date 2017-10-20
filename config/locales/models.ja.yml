@@ -10,5 +10,7 @@ ja:
         published_on: 出版日
         showing: 商品表示
         price: 価格
+        picture: 商品写真
+        tag: タグ
       tag:
         name: タグ名
