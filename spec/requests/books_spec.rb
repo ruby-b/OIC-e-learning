@@ -10,7 +10,7 @@ RSpec.describe 'Books', type: :request do
     end
 
     context 'ログインしている場合' do
-      let(:user) {User.create(email: 'test@example.com', password: 'password')}
+      let(:user) { User.create(email: 'test@example.com', password: 'password') }
 
       before do
         login_as user
