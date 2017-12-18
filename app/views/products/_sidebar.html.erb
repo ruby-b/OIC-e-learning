@@ -1,0 +1,9 @@
+<div class="col-12 col-md-3 sidebar-offcanvas" id="sidebar">
+  <h2 class="side-ttl">カテゴリから探す</h2>
+  <ul class="list-group agw_side-list">
+    <% @tags.each do |tag| %>
+      <li class="list-group-item"><%= tag.name %></li>
+    <% end %>
+  </ul>
+
+</div><!--/span-->

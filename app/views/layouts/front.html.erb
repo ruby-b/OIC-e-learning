@@ -42,19 +42,7 @@
     <div class="container agw_toplist">
 
       <div class="row row-offcanvas row-offcanvas-right">
-        <div class="col-12 col-md-9">
-          <%= yield %>
-        </div><!--/span-->
-
-        <div class="col-12 col-md-3 sidebar-offcanvas" id="sidebar">
-        	<h2 class="side-ttl">カテゴリから探す</h2>
-			    <ul class="list-group agw_side-list">
-            <% @tags.each do |tag| %>
-              <li class="list-group-item"><%= tag.name %></li>
-            <% end %>
-			    </ul>
-
-        </div><!--/span-->
+        <%= yield %>
       </div><!--/row-->
 
       <hr>

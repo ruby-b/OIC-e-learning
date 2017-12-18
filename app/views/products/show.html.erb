@@ -1,20 +1,24 @@
-<div class="row agw_detail-block_row">
-	<div class="col-6 col-md-4">
-	  <p class="agw_dt_img">
-      <% if @product.picture.present? %>
-        <%= image_tag @product.picture, width: 400 %>
-      <% else %>
-        <%= image_tag "http://placehold.jp/400x550.png" %>
-      <% end %>
-    </p>
-	</div><!--/span-->
-	<div class="col-6 col-md-8">
-	  <h3 class="agw_dt_book-ttl"><%= @product.title %></h3>
-	  <p class="agw_dt_date">出版：<%= @product.published_on %></p>
-	  <p class="agw_dt_author"><%= @product.author %></p>
-	  <p class="agw_dt_plice"><%= number_to_currency @product.price, precision: 0, unit: "", format: "%u %n" %><span>円</span></p>
-	  <p class="agw_dt_buy-button">
-      <a href="layout3.html" class="btn btn-lg btn-warning" role="button" aria-pressed="true">購入する</a>
-    </p>
-	</div>
-</div><!--/row-->
+<div class="col-12 col-md-9">
+  <div class="row agw_detail-block_row">
+    <div class="col-6 col-md-4">
+      <p class="agw_dt_img">
+        <% if @product.picture.present? %>
+          <%= image_tag @product.picture, width: 400 %>
+        <% else %>
+          <%= image_tag "http://placehold.jp/400x550.png" %>
+        <% end %>
+      </p>
+    </div><!--/span-->
+    <div class="col-6 col-md-8">
+      <h3 class="agw_dt_book-ttl"><%= @product.title %></h3>
+      <p class="agw_dt_date">出版：<%= @product.published_on %></p>
+      <p class="agw_dt_author"><%= @product.author %></p>
+      <p class="agw_dt_plice"><%= number_to_currency @product.price, precision: 0, unit: "", format: "%u %n" %><span>円</span></p>
+      <p class="agw_dt_buy-button">
+        <%= link_to '購入する', orders_new_path(book_id: @product.id), html_options = {class: "btn btn-lg btn-warning", "aria-pressed"=>"true"} %>
+      </p>
+    </div>
+  </div><!--/row-->
+</div><!--/span-->
+
+<%= render 'sidebar' %>
