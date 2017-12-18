@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'orders/new'
+
   devise_for :users
   resources :tags, except: :show
   resources :books
