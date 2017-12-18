@@ -15,3 +15,6 @@ ja:
         picture_content_type: Content Type
       tag:
         name: タグ名
+      order:
+        quantity: 数量
+        address: 住所
