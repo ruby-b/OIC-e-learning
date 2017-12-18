@@ -1,4 +1,21 @@
 <div class="col-12 col-md-9">
+  <% if alert %>
+    <div class="alert alert-danger" role="alert">
+      <%= alert %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <% end %>
+  <% if notice %>
+    <div class="alert alert-success" role="alert">
+      <%= notice %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <% end %>
+
   <h2 class="list-title">おすすめBooks</h2>
   <div class="row agw_list-block_row">
     <% @products.each do |product| %>

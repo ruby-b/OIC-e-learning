@@ -20,7 +20,7 @@
 <div class="col-12 col-md-3 sidebar-offcanvas" id="sidebar">
   <div class="agw_side-cart_block">
 
-    <%= form_with(model: @order, local: true, url: root_path) do |form| %>
+    <%= form_with(model: @order, local: true) do |form| %>
       <p><strong>注文数量と、送り先の住所を入力してください。</strong></p>
       <p>
         <div class="field">
@@ -31,8 +31,8 @@
           <%= form.label :address %>
           <%= form.text_field :address, {class: "form-control"} %>
         </div>
-        <%= form.hidden_field :book_id, id: @product.id %>
-        <%= form.hidden_field :user_id, id: current_user.id %>
+        <%= form.hidden_field :book_id, value: @product.id %>
+        <%= form.hidden_field :user_id, value: current_user.id %>
       </p>
 
       <ul class="agw_side-cart_block_inner">
