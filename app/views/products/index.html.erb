@@ -1,2 +1,23 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<h2 class="list-title">おすすめBooks</h2>
+<div class="row agw_list-block_row">
+  <% @products.each do |product| %>
+    <div class="col-6 col-lg-4">
+      <p class="agw_bl_img">
+        <% if product.picture.present? %>
+          <%= link_to (image_tag product.picture, width: 400), product_path(product) %>
+        <% else %>
+          <%= link_to (image_tag "http://placehold.jp/400x400.png"), product_path(product) %>
+        <% end %>
+      </p>
+      <h3 class="agw_bl_book-ttl">
+        <%= link_to product.title, product_path(product) %>
+      </h3>
+      <p class="agw_bl_date"><%= product.published_on&.strftime("%Y.%m.%d") %></p>
+      <p class="agw_bl_author"><%= product.author %></p>
+      <p class="agw_bl_plice">
+        <%= number_to_currency product.price, precision: 0, unit: "", format: "%u %n" %>
+        <span>円</span>
+      </p>
+    </div><!--/span-->
+  <% end %>
+</div><!--/row-->

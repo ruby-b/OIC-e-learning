@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @products = Book.find(params[:id])
+    @product = Book.find(params[:id])
+    render layout: 'front'
   end
 end
