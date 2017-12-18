@@ -1,0 +1,288 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  color: #5a5a5a;
+  font-family: "游ゴシック", "Yu Gothic", YuGothic,"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  font-feature-settings : "palt";
+}
+@mixin after {
+  &:after{
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  margin-bottom: 4rem;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+  bottom: 3rem;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel-item {
+  height: 32rem;
+  background-color: #777;
+}
+.carousel-item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 32rem;
+}
+
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .col-lg-4 p {
+  margin-right: .75rem;
+  margin-left: .75rem;
+}
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -.05rem;
+}
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 40em) {
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 62em) {
+  .featurette-heading {
+    margin-top: 7rem;
+  }
+}
+
+
+
+
+.jumbotron{
+  background-image: image-url('mv01.jpg');
+  border-radius: 0;
+}
+.agw_header{
+  background:#fff;
+  h1{
+    text-align: center;
+    width: 100%;
+    font-family: 'Baloo Chettan', cursive;
+    a{
+      color:#333;
+    }
+  }
+  button.agw_cartbutton{
+    float: right;
+    position: absolute;
+    right:10px;
+    i{
+      font-size: 120%;
+    }
+  }
+}
+.agw_page-search{
+  margin-top: 2rem;
+}
+.agw_formblock{
+  .form-control{
+    border-radius: 5px 0 0 5px;
+  }
+  button.btn.search-btn{
+    border-radius: 0 5px 5px 0;
+  }
+  margin:0 auto 4rem;
+}
+.agw_toplist{
+  h2.list-title{
+    font-weight: bold;
+  }
+  .agw_list-block_row{
+    margin-bottom: 2rem;
+  }
+}
+
+
+//トップページリスト
+.agw_list-block_row{
+  .agw_bl_img{
+    img{
+      max-width: 100%;
+      height:auto;
+    }
+  }
+  h3.agw_bl_book-ttl{
+    font-size: 120%;
+    margin:0 5px 10px 0;
+    display: inline;
+    a{
+      color:#333;
+    }
+  }
+  .agw_bl_date{
+    display: inline;
+    font-size: 90%;
+  }
+  .agw_bl_author{
+    margin:5px 0;
+  }
+  .agw_bl_plice{
+    float: right;
+    clear: both;
+    color:#f00;
+    font-size: 130%;
+    font-weight: bold;
+    span{
+      font-size: 80%;
+    }
+  }
+}
+
+//詳細ページ
+.agw_detail-block_row{
+  .agw_dt_img{
+    img{
+      max-width: 100%;
+      height:auto;
+    }
+  }
+  h3.agw_dt_book-ttl{
+    font-size: 160%;
+    margin:0 0 10px;
+    font-weight: bold;
+    a{
+      color:#333;
+    }
+  }
+  .agw_dt_date{
+    margin:0 0 5px;
+  }
+  .agw_dt_author{
+    margin:0;
+  }
+  .agw_dt_plice{
+    text-align: right;
+    clear: both;
+    color:#f00;
+    font-size: 150%;
+    font-weight: bold;
+    margin:0 0 1rem;
+    span{
+      font-size: 80%;
+    }
+  }
+  .agw_dt_plice2{
+    clear: both;
+    color:#f00;
+    font-size: 150%;
+    font-weight: bold;
+    margin:0 0 1rem;
+    span{
+      font-size: 80%;
+    }
+  }
+  .agw_dt_buy-button{
+    clear: both;
+    float: right;
+    a{
+      padding:0.5rem 2.5rem;
+    }
+  }
+  //DetailBlock
+  .agw_db_ttl{
+    font-weight: bold;
+    font-size: 130%;
+  }
+}
+
+//side
+.side-ttl{
+  font-size: 120%;
+  font-weight: bold;
+}
+.agw_side-list{
+  margin-bottom: 2rem;
+  li{
+    &:hover{
+      background:#ddd;
+    }
+    &.active{
+      background:#aaa;
+      border-color:#aaa;
+    }
+  }
+}
+//サイドのかーと
+.agw_side-cart_block{
+  background:#eee;
+  padding: 20px;
+}
+.agw_side-cart_block_inner{
+  list-style: none;
+  margin:0 0 10px;
+  padding: 0;  
+  @include after;
+  p{margin:0;padding:0 0 5px 0;}
+  li{
+    clear: both;
+
+  }
+  .buy_ttl{
+    float: left;
+  }
+  .buy_accounts{
+    float: right;
+  }
+  .buy_all{
+    border-top: solid 1px #ccc;
+    padding-top: 5px;
+    .buy_accounts{
+      color:#f00;
+    }
+  }
+}
