@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     if @order.save
+      OrderMailer.confirm_mail(@order).deliver
       redirect_to root_path, notice: '注文が正常に登録されました'
     else
       redirect_to root_path, alert: '注文の登録ができませんでした'

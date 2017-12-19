@@ -1,3 +1,10 @@
-Order#confirm_mail
+ご注文受付のお知らせ
 
-<%= @greeting %>, find me in app/views/order_mailer/confirm_mail.text.erb
+以下の内容でご注文を承りました。
+
+----------------------------------
+受付日時 : <%= @order.updated_at %>
+タイトル : <%= Book.find(@order.book_id).title %>
+数量 : <%= @order.quantity %>
+お届け先 : <%= @order.address %>
+----------------------------------
