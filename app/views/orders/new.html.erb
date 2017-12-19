@@ -1,6 +1,7 @@
 <div class="col-12 col-md-9">
   <h2 class="list-title">購入する商品</h2>
   <div class="row agw_detail-block_row">
+
     <div class="col-6 col-md-3">
       <p class="agw_dt_img">
         <% if @product.picture.present? %>
@@ -10,47 +11,38 @@
         <% end %>
       </p>
     </div><!--/span-->
+
     <div class="col-6 col-md-9">
       <h3 class="agw_dt_book-ttl"><%= @product.title %></h3>
       <p class="agw_dt_plice2"><%= number_to_currency @product.price, precision: 0, unit: "", format: "%u %n" %><span>円 （税込）</span></p>
     </div>
-  </div><!--/row-->
-</div><!--/span-->
 
-<div class="col-12 col-md-3 sidebar-offcanvas" id="sidebar">
-  <div class="agw_side-cart_block">
-
-    <%= form_with(model: @order, local: true) do |form| %>
-      <p><strong>注文数量と、送り先の住所を入力してください。</strong></p>
-      <p>
+    <div class="col-12 col-md-9">
+      <%= form_with(model: @order, local: true, url: confirm_orders_path) do |form| %>
         <div class="field">
           <%= form.label :quantity %>
           <%= form.number_field :quantity, {class: "form-control", value: 1} %>
         </div>
+
+        <br />
+
         <div class="field">
           <%= form.label :address %>
           <%= form.text_field :address, {class: "form-control"} %>
         </div>
+
         <%= form.hidden_field :book_id, value: @product.id %>
         <%= form.hidden_field :user_id, value: current_user.id %>
-      </p>
 
-      <ul class="agw_side-cart_block_inner">
-        <li>
-          <p class="buy_ttl">商品合計</p>
-          <p class="buy_accounts"><strong>xx,xxx円</strong></p>
-        </li>
-        <li>
-          <p class="buy_ttl">送料</p>
-          <p class="buy_accounts"><strong>0円</strong></p>
-        </li>
-        <li class="buy_all">
-          <p class="buy_ttl">総合計</p>
-          <p class="buy_accounts"><strong>00,000円</strong></p>
-        </li>
-      </ul>
+        <br />
 
-      <%= form.submit "購入を確定する", class:"btn btn-danger btn-lg btn-block" %>
-    <% end %>
-  </div>
-</div>
+        <div class="field">
+          <%= form.submit "注文を確認する", class:"btn btn-warning btn-lg btn-block1" %>
+        </div>
+      <% end %>
+    </div>
+
+  </div><!--/row-->
+</div><!--/span-->
+
+<%= render 'products/sidebar' %>

@@ -1,8 +1,14 @@
 class OrdersController < ApplicationController
+  layout 'front'
+
   def new
-    @product  = Book.find(params[:book_id].to_i)
-    @order    = Order.new
-    render layout: 'front'
+    @product = Book.find(params[:book_id].to_i)
+    @order   = Order.new
+  end
+
+  def confirm
+    @product = Book.find(order_params[:book_id])
+    @order   = Order.new(order_params)
   end
 
   def create
