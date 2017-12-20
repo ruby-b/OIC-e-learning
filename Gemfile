@@ -43,7 +43,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-  gem 'database_rewinder'
+  gem 'database_cleaner'
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'webdrivers'

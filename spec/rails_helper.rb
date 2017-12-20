@@ -67,12 +67,13 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
 
   RSpec.configure do |config|
-    config.before(:suite) do
-      DatabaseRewinder.clean_all
+    config.before :suite do
+      DatabaseCleaner.strategy = :transaction
+      DatabaseCleaner.clean_with(:truncation)
     end
 
-    config.after(:each) do
-      DatabaseRewinder.clean
+    config.after :each do
+      DatabaseCleaner.clean
     end
   end
 end
