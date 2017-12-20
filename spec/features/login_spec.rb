@@ -5,10 +5,10 @@ RSpec.feature "ログイン" do
   scenario "access to book index" do
     visit "/books"
     expect(page).to have_text("Log in")
-    fill_in 'Email', with: 'test@example.com'
-    fill_in 'Password', with: 'password'
+    fill_in 'Eメール', with: 'test@example.com'
+    fill_in 'パスワード', with: 'password'
     # page.save_screenshot('~/login.png')
-    click_on 'Log in'
+    click_on 'ログイン'
     expect(page).to have_text("Book")
     #page.save_screenshot('~/book.png')
   end
