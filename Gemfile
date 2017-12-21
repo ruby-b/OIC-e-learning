@@ -35,6 +35,7 @@ gem 'bootstrap', '~> 4.0.0.beta'
 gem 'jquery-rails'
 gem 'devise-i18n'
 gem 'paperclip'
+gem 'ransack'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
