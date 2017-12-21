@@ -2,13 +2,17 @@ class OrdersController < ApplicationController
   layout 'front'
 
   def new
-    @product = Book.find(params[:book_id].to_i)
-    @order   = Order.new
+    @line_items = @current_cart.line_items
+    if @line_items.empty?
+      redirect_to products_index_url
+      return
+    end
+    @order = Order.new
   end
 
   def confirm
-    @product = Book.find(order_params[:book_id])
-    @order   = Order.new(order_params)
+    @line_items = @current_cart.line_items
+    @order = Order.new(order_params)
   end
 
   def create

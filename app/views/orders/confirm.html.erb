@@ -2,20 +2,25 @@
   <h2 class="list-title">購入する商品</h2>
   <div class="row agw_detail-block_row">
 
-    <div class="col-6 col-md-3">
-      <p class="agw_dt_img">
-        <% if @product.picture.present? %>
-          <%= image_tag @product.picture, width: 400 %>
-        <% else %>
-          <%= image_tag "http://placehold.jp/400x550.png" %>
-        <% end %>
-      </p>
-    </div><!--/span-->
+    <% @line_items.each do |item| %>
+      <% book = item.book %>
 
-    <div class="col-6 col-md-9">
-      <h3 class="agw_dt_book-ttl"><%= @product.title %></h3>
-      <p class="agw_dt_plice2"><%= number_to_currency @product.price, precision: 0, unit: "", format: "%u %n" %><span>円 （税込）</span></p>
-    </div>
+      <div class="col-6 col-md-3">
+        <p class="agw_dt_img">
+          <% if book.picture.present? %>
+            <%= image_tag book.picture, width: 400 %>
+          <% else %>
+            <%= image_tag "http://placehold.jp/400x550.png" %>
+          <% end %>
+        </p>
+      </div><!--/span-->
+
+      <div class="col-6 col-md-9">
+        <h3 class="agw_dt_book-ttl"><%= book.title %></h3>
+        <p class="agw_dt_plice3"><%= item.quantity %>冊</p>
+        <p class="agw_dt_plice2"><%= number_to_currency book.price, precision: 0, unit: "", format: "%u %n" %><span>円 （税込）</span></p>
+      </div>
+    <% end %>
 
   </div><!--/row-->
 </div><!--/span-->
@@ -27,7 +32,7 @@
       <ul class="agw_side-cart_block_inner">
         <li>
           <p class="buy_ttl"><%= form.label :quantity %></p>
-          <p class="buy_accounts"><strong><%= @order.quantity %>冊</strong></p>
+          <p class="buy_accounts"><strong><%= @current_cart.total_number %>冊</strong></p>
         </li>
         <li>
           <p class="buy_ttl"><%= form.label :address %></p>
@@ -35,7 +40,7 @@
         </li>
         <li>
           <p class="buy_ttl">商品合計</p>
-          <p class="buy_accounts"><strong><%= number_to_currency @product.price, precision: 0, unit: "", format: "%u %n" %>円</strong></p>
+          <p class="buy_accounts"><strong><%= number_to_currency @current_cart.total_price, precision: 0, unit: "", format: "%u %n" %>円</strong></p>
         </li>
         <li>
           <p class="buy_ttl">送料</p>
@@ -43,13 +48,11 @@
         </li>
         <li class="buy_all">
           <p class="buy_ttl">総合計</p>
-          <p class="buy_accounts"><strong><%= number_to_currency @product.price, precision: 0, unit: "", format: "%u %n" %>円</strong></p>
+          <p class="buy_accounts"><strong><%= number_to_currency @current_cart.total_price, precision: 0, unit: "", format: "%u %n" %>円</strong></p>
         </li>
       </ul>
 
-      <%= form.hidden_field :quantity, value: @order.quantity %>
       <%= form.hidden_field :address, value: @order.address %>
-      <%= form.hidden_field :book_id, value: @order.book_id %>
       <%= form.hidden_field :user_id, value: @order.user_id %>
 
       <%= form.submit "購入を確定する", class:"btn btn-danger btn-lg btn-block" %>
