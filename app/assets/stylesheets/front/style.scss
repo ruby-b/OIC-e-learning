@@ -117,7 +117,7 @@ body {
       color:#333;
     }
   }
-  button.agw_cartbutton{
+  a.agw_cartbutton{
     float: right;
     position: absolute;
     right:10px;
@@ -219,6 +219,15 @@ body {
   .agw_dt_plice2{
     clear: both;
     color:#f00;
+    font-size: 150%;
+    font-weight: bold;
+    margin:0 0 1rem;
+    span{
+      font-size: 80%;
+    }
+  }
+  .agw_dt_plice3{
+    clear: both;
     font-size: 150%;
     font-weight: bold;
     margin:0 0 1rem;

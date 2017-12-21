@@ -15,9 +15,11 @@
     <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top agw_header">
     	<div class="container">
         <h1><%= link_to 'BookShop', root_path %></h1>
-    		<button type="button" class="btn btn-outline-secondary agw_cartbutton">買い物かご<i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+        <%= link_to cart_path(@current_cart), class: "btn btn-outline-secondary agw_cartbutton" do %>
+          買い物かご<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        <% end %>
     	</div>
-      
+
     </nav>
 
     <% if request.fullpath == "/" %>

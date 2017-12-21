@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
+  layout 'front'
 
   # GET /carts
   # GET /carts.json
@@ -10,6 +11,7 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.json
   def show
+    @line_items = @cart.line_items
   end
 
   # GET /carts/new
