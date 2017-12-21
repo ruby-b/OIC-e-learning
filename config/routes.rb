@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :carts
+  resources :line_items
   devise_for :users
   resources :tags, except: :show
   resources :books
