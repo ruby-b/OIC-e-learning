@@ -35,6 +35,13 @@
       <p class="agw_dt_buy-button">
       <p class="agw_dt_plice2">合計　<%= @cart.total_number %><span>冊</span></p>
       <p class="agw_dt_plice2"><%= number_to_currency @cart.total_price, precision: 0, unit: "", format: "%u %n" %><span>円 （税込）</span></p>
+
+      <% if @line_items.count == 0 %>
+        買い物かごには何も入っていません。
+      <% else %>
+        <%= link_to '買い物かごを空にする', @cart, method: :delete, data: { confirm: '買い物かごの中身をすべて削除してもいいですか？' } %>
+      <% end %>
+
         <%#= link_to '購入する', new_order_path(book_id: @product.id), html_options = {class: "btn btn-lg btn-warning", "aria-pressed"=>"true"} %>
       </p>
     </div>
