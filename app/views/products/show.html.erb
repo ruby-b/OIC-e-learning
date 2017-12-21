@@ -15,7 +15,7 @@
       <p class="agw_dt_author"><%= @product.author %></p>
       <p class="agw_dt_plice"><%= number_to_currency @product.price, precision: 0, unit: "", format: "%u %n" %><span>円</span></p>
       <p class="agw_dt_buy-button">
-        <%= link_to '購入する', new_order_path(book_id: @product.id), html_options = {class: "btn btn-lg btn-warning", "aria-pressed"=>"true"} %>
+        <%= link_to 'カートに入れる', line_items_path(book_id: @product.id), html_options = {method: :post, class: "btn btn-lg btn-warning", "aria-pressed"=>"true"} %>
       </p>
     </div>
   </div><!--/row-->

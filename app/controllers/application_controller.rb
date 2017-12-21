@@ -13,4 +13,13 @@ class ApplicationController < ActionController::Base
   def tags
     @tags = Tag.all
   end
+
+  private
+
+  def current_cart
+    cart = Cart.find_by(id: session[:cart_id])
+    cart = Cart.create unless cart
+    session[:cart_id] = cart.id
+    cart
+  end
 end
