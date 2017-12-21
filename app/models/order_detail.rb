@@ -10,4 +10,8 @@ class OrderDetail < ApplicationRecord
       LineItem.find(item.id).delete
     end
   end
+
+  def total_price
+    book.price * quantity
+  end
 end

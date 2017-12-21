@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :tags, except: :show
   resources :books
   resources :products, only: [:index, :show]
-  resources :orders, only: [:new, :create] do
+  resources :orders, only: [:index, :show, :new, :create] do
     collection do
       post :confirm
     end

@@ -18,3 +18,7 @@ ja:
       order:
         quantity: 数量
         address: 住所
+        user: 発注者
+        created_at: 注文日時
+      order_detail:
+        quantity: 数量

@@ -29,6 +29,16 @@ class OrdersController < ApplicationController
     end
   end
 
+  def index
+    @orders = Order.order("created_at DESC")
+    render layout: 'application'
+  end
+
+  def show
+    @order = Order.find(params[:id])
+    render layout: 'application'
+  end
+
   private
 
   def set_line_items

@@ -232,6 +232,8 @@ ja:
     <<: *scaffold
   tags:
     <<: *scaffold
+  orders:
+    <<: *scaffold
   login: ログイン
   logout: ログアウト
   sign_up: ユーザ登録

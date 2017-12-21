@@ -1,0 +1,43 @@
+<div class="row">
+   <div class="col-md-6">
+    <span class="text-muted"><%= Order.human_attribute_name(:user) %></span>
+    <%= @order.user&.email %>
+  </div>
+</div>
+
+<div class="row">
+   <div class="col-md-6">
+    <span class="text-muted"><%= Order.human_attribute_name(:address) %></span>
+    <%= @order.address %>
+  </div>
+</div>
+
+<br />
+
+<% @order.order_details.each do |detail| %>
+  <% book = detail.book %>
+  <div class="row">
+    <div class="col-md-6">
+      <span class="text-muted"><%= Book.human_attribute_name(:title) %></span>
+      <%= link_to book.title, book %>
+    </div>
+  </div>
+
+  <div class="row">
+     <div class="col-md-6">
+      <span class="text-muted"><%= OrderDetail.human_attribute_name(:quantity) %></span>
+      <%= detail.quantity %>冊
+    </div>
+  </div>
+
+  <div class="row">
+     <div class="col-md-6">
+      <span class="text-muted"><%= Book.human_attribute_name(:price) %></span>
+      <%= detail.total_price %>円
+    </div>
+  </div>
+<% end %>
+
+<br />
+
+<%= link_to t('.back'), orders_path %>

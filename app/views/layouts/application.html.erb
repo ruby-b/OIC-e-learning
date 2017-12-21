@@ -13,7 +13,7 @@
 <body>
 
 <nav class="navbar navbar-light bg-faded">
-  <h1 class="navbar-brand mb-0">Navbar</h1>
+  <h1 class="navbar-brand mb-0">管理画面</h1>
   <ul class="nav justify-content-end">
     <li class="nav-item">
       <%= link_to t('logout'), destroy_user_session_path, method: :delete, class: 'nav-link' if user_signed_in? %>
@@ -38,8 +38,9 @@
     </div>
     <div class="col-md-3">
       <div>
-        <h4>About</h4>
-        This system is for user registration.
+        <h4>メニュー</h4>
+        <h5><%= link_to 'Books', books_path %></h5>
+        <h5><%= link_to 'Orders', orders_path %></h5>
       </div>
     </div>
   </div>
