@@ -4,7 +4,9 @@
 
 ----------------------------------
 受付日時 : <%= @order.updated_at %>
-タイトル : <%= Book.find(@order.book_id).title %>
-数量 : <%= @order.quantity %>
 お届け先 : <%= @order.address %>
+<% @order.order_details.each do |detail| %>
+  タイトル : <%= Book.find(detail.book_id).title %>
+  数量 : <%= detail.quantity %>　冊
+<% end %>
 ----------------------------------

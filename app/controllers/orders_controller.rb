@@ -1,8 +1,8 @@
 class OrdersController < ApplicationController
+  before_action :set_line_items
   layout 'front'
 
   def new
-    @line_items = @current_cart.line_items
     if @line_items.empty?
       redirect_to products_index_url
       return
@@ -11,13 +11,17 @@ class OrdersController < ApplicationController
   end
 
   def confirm
-    @line_items = @current_cart.line_items
     @order = Order.new(order_params)
   end
 
   def create
+    unless user_signed_in?
+      redirect_to cart_path(@current_cart), notice: 'ログインしてください'
+      return
+    end
     @order = Order.new(order_params)
     if @order.save
+      OrderDetail.create_items(@order, @line_items)
       OrderMailer.confirm_mail(@order).deliver
       redirect_to root_path, notice: '注文が正常に登録されました'
     else
@@ -26,6 +30,10 @@ class OrdersController < ApplicationController
   end
 
   private
+
+  def set_line_items
+    @line_items = @current_cart.line_items
+  end
 
   def order_params
     params.require(:order).permit(:address,:quantity,:book_id,:user_id)

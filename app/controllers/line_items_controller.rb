@@ -30,7 +30,7 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to cart_path(cart), notice: 'Line item was successfully created.' }
+        format.html { redirect_to cart_path(cart), notice: '買い物かごに追加しました' }
         format.json { render :show, status: :created, location: @line_item }
       else
         format.html { render :new }
