@@ -63,7 +63,9 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: 'https://your.domain.name/', port: 80 }
+  config.action_mailer.default_url_options = {
+    host: 'https://your.domain.name/', port: 80
+  }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     enable_starttls_auto: true,
