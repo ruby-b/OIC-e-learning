@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   layout 'front'
 
   def index
-    @products = Book.all
+    @products = @q.result
   end
 
   def show

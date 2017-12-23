@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :tags, :current_cart
+  before_action :tags, :current_cart, :set_search_q
 
   def after_sign_out_path_for(_resource)
     new_user_session_path
@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
 
   def tags
     @tags = Tag.all
+  end
+
+  def set_search_q
+    @q = Book.ransack params[:q]
   end
 
   private

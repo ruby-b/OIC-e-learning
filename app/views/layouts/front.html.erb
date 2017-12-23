@@ -35,10 +35,12 @@
     <% end %>
 
 	  <div class="container agw_page-search">
-      <form class="form-inline agw_formblock">
-        <input class="form-control col-10" type="text" placeholder="Search">
-        <button class="btn btn-info col-2 search-btn" type="submit">Search <i class="fa fa-search" aria-hidden="true"></i></button>
-      </form>
+      <%= search_form_for @q, url: "/", html: {class: "form-inline agw_formblock"} do |f| %>
+        <%= f.text_field :title_or_author_cont, class: "form-control col-10", placeholder: "Search" %>
+        <%= button_tag type: "submit", class: "btn btn-info col-2 search-btn" do %>
+          Search <i class="fa fa-search" aria-hidden="true"></i>
+        <% end %>
+      <% end %>
 	  </div>
 
     <div class="container agw_toplist">
