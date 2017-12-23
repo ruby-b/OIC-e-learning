@@ -2,7 +2,10 @@
   <h2 class="side-ttl">カテゴリから探す</h2>
   <ul class="list-group agw_side-list">
     <% @tags.each do |tag| %>
-      <li class="list-group-item"><%= tag.name %></li>
+      <%= link_to tag.name, root_path(tag_id: tag.id),
+        class: "list-group-item
+               #{params[:tag_id] == tag.id.to_s ? "active" : ""}"
+      %>
     <% end %>
   </ul>
 

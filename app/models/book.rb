@@ -8,4 +8,7 @@ class Book < ApplicationRecord
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/
 
   validates :title, presence: true
+
+  scope :by_tags, ->(id) { joins(:taggings)
+                             .where("taggings.tag_id = ?", id) if id.present? }
 end

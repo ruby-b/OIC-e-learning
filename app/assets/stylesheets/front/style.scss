@@ -256,7 +256,8 @@ body {
 }
 .agw_side-list{
   margin-bottom: 2rem;
-  li{
+  a{
+    color: inherit;
     &:hover{
       background:#ddd;
     }
